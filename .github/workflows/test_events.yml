@@ -7,17 +7,13 @@ on:
     branches: [ main ]
 
 jobs:
-  wget:
+  crawl-website:
 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
+    - run: wget --mirror -o logfile.txt -P /actions/adappt.co.uk https://adappt.co.uk
 
-    - name: Crawl the site and store it in current directory
-      uses: wei/wget@v1
-      with:
-        args: -o logfile.txt -P /actions https://adappt.co.uk
-  
   zip-files:
     
     runs-on: ubuntu-latest
