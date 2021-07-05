@@ -16,7 +16,7 @@ jobs:
     - name: Crawl the site and store it in current directory
       uses: wei/wget@v1
       with:
-        args: -o logfile.txt https://adappt.co.uk
+        args: -o logfile.txt -P /actions https://adappt.co.uk
   
   zip-files:
     
