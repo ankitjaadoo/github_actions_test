@@ -2,16 +2,16 @@ name: Scrape website and store its content into an AWS S3 bucket
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   wget:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     - name: Crawl the site and store it in current directory
       uses: wei/wget@v1
@@ -22,7 +22,7 @@ jobs:
     
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     - name: action-zip
       uses: montudor/action-zip@v1.0.0
