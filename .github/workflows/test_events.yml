@@ -1,0 +1,49 @@
+name: Scrape website and store its content into an AWS S3 bucket
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  wget:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Crawl the site and store it in current directory
+      uses: wei/wget@v1
+      with:
+        args: -m -o /actions/logfile.txt -p -P /actions/ https://adappt.co.uk
+  
+  zip-files:
+    
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: action-zip
+      uses: montudor/action-zip@v1.0.0
+      with:
+        args: zip -qq -r adappt_co_uk.zip /actions/adappt.co.uk
+
+  # upload:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@master
+
+  #     - name: Copy file to S3
+  #       shell: bash
+  #       env:
+  #         aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY_ID }}
+  #         aws_s3_bucket: ${{ secrets.AWS_S3BUCKET_NAME }}
+  #       run: |
+  #         sudo apt-get update && sudo apt-get -y install awscli
+  #         aws configure set aws_access_key_id $aws_key_id
+  #         aws configure set aws_secret_access_key $aws_secret_access_key 
+  #         aws configure set default.region eu-central-1
+  #         aws s3 cp ./adappt_co_uk.zip s3://$aws_s3_bucket/
+         
