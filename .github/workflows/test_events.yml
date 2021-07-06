@@ -17,7 +17,7 @@ jobs:
     - name: wget
       uses: wei/wget@v1
       with:
-        args: -O basics.html https://adappt.co.uk
+        args: -O logfile.txt -P ./actions/ /https://adappt.co.uk
 
   zip-files:
     name: Zips the Saved file
