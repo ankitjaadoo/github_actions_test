@@ -1,4 +1,4 @@
-name: Create S3 Bucket for Artifacts
+name: Create S3 Bucket and deploy code to it
 on:
   push:
     branches: [ main ]
