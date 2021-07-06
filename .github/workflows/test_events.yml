@@ -11,23 +11,25 @@ jobs:
     name: Crawls the website
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+    - name: Checkout Code
+      uses: actions/checkout@v2
 
-      - name: Crawl the website
-        shell: bash
-        uses: wei/wget@v1
-        with:
-          args: -o logfile.txt -P . https://adappt.co.uk
+    - name: wget
+      uses: wei/wget@v1
+      with:
+        args: -O basics.html https://adappt.co.uk
 
   zip-files:
     name: Zips the Saved file
     runs-on: ubuntu-latest
     steps:
-      - name: Prepares a zip file
-        uses: montudor/action-zip@v1.0.0
-        with:
-          args: zip -qq -r adappt_co_uk.zip . -i /actions/adappt.co.uk
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Prepares a zip file
+      uses: montudor/action-zip@v1.0.0
+      with:
+        args: zip -qq -r adappt_co_uk.zip . -i /actions/adappt.co.uk
 
   # upload:
   #   runs-on: ubuntu-latest
