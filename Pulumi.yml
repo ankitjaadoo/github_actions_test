@@ -1,3 +1,0 @@
-name: GitHubActions_Pulumi_S3
-runtime: dotnet
-description: A minimal AWS C# Pulumi program
