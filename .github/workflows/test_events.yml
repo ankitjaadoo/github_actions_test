@@ -10,16 +10,19 @@ jobs:
   crawl-website:
 
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@main
 
     - name: Crawl the website
       uses: wei/wget@v1
-      shell: wget -o logfile.txt -P /actions/ https://adappt.co.uk
+      with:
+        args: -o logfile.txt -P /actions https://adappt.co.uk
 
   zip-files:
     
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@main
 
