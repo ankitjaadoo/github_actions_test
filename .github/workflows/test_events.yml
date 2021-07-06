@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@V2
+        uses: actions/checkout@v2
 
       - name: Crawl the website
         uses: wei/wget@v1
