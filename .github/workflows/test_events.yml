@@ -8,28 +8,25 @@ on:
 
 jobs:
   crawl-website:
-
+    name: Crawls the website
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@main
+      - name: Checkout Code
+        uses: actions/checkout@V2
 
-    - name: Crawl the website
-      uses: wei/wget@v1
-      with:
-        args: --spider -o logfile.txt -P . https://adappt.co.uk
+      - name: Crawl the website
+        uses: wei/wget@v1
+        with:
+          args: --spider -o logfile.txt -P . https://adappt.co.uk
 
   zip-files:
-    
+    name: Zips the Saved file
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@main
-
-    - name: action-zip
-      uses: montudor/action-zip@v1.0.0
-      with:
-        args: zip -qq -r adappt_co_uk.zip /actions/adappt.co.uk
+      - name: Prepares a zip file
+        uses: montudor/action-zip@v1.0.0
+        with:
+          args: zip -qq -r adappt_co_uk.zip /actions/adappt.co.uk
 
   # upload:
   #   runs-on: ubuntu-latest
