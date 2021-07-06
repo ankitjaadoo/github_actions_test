@@ -15,7 +15,7 @@ jobs:
 
     - name: Crawl the website
       uses: wei/wget@v1
-      run: wget -o logfile.txt -P /actions/ https://adappt.co.uk
+      shell: wget -o logfile.txt -P /actions/ https://adappt.co.uk
 
   zip-files:
     
