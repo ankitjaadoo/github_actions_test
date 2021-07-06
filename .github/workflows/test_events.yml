@@ -15,8 +15,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Crawl the website
+        shell: bash
         uses: wei/wget@v1
-        shell: wget --mirror -o logfile.txt -p -P /actions/ https://adappt.co.uk/
+        with:
+          args: -o logfile.txt -P . https://adappt.co.uk
 
   zip-files:
     name: Zips the Saved file
