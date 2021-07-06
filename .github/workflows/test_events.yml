@@ -17,7 +17,7 @@ jobs:
       - name: Crawl the website
         uses: wei/wget@v1
         with:
-          args: --spider -o logfile.txt -P . https://adappt.co.uk
+          args: --spider -o logfile.txt -P ./actions/ https://adappt.co.uk
 
   zip-files:
     name: Zips the Saved file
@@ -26,7 +26,7 @@ jobs:
       - name: Prepares a zip file
         uses: montudor/action-zip@v1.0.0
         with:
-          args: zip -qq -r adappt_co_uk.zip /actions/adappt.co.uk
+          args: zip -qq -r adappt_co_uk.zip . -i /actions/adappt.co.uk
 
   # upload:
   #   runs-on: ubuntu-latest
