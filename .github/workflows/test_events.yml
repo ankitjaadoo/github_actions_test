@@ -11,8 +11,8 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@V2
-    
+    - uses: actions/checkout@main
+
     - name: Crawl the website
     - run: wget -o logfile.txt -P /actions/ https://adappt.co.uk
 
@@ -20,7 +20,7 @@ jobs:
     
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@V2
+    - uses: actions/checkout@main
 
     - name: action-zip
       uses: montudor/action-zip@v1.0.0
@@ -30,7 +30,7 @@ jobs:
   # upload:
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: actions/checkout@V2
+  #     - uses: actions/checkout@main
 
   #     - name: Copy file to S3
   #       shell: bash
