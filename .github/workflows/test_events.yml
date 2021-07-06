@@ -14,7 +14,8 @@ jobs:
     - uses: actions/checkout@main
 
     - name: Crawl the website
-    - run: wget -o logfile.txt -P /actions/ https://adappt.co.uk
+      uses: wei/wget@v1
+      run: wget -o logfile.txt -P /actions/ https://adappt.co.uk
 
   zip-files:
     
